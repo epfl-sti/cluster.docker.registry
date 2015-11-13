@@ -9,5 +9,6 @@ ExecStartPre=/bin/sh -c 'docker rm -f %n 2>/dev/null || true'
 ExecStartPre=/usr/bin/docker pull registry:2
 ExecStart=/bin/sh -c 'docker run -p 5000:5000 --restart=always --name %n registry:2'
 ExecStop=/usr/bin/docker rm -f %n
+TimeoutStartSec=3600
 RestartSec=5s
 Restart=always
